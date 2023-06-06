@@ -1,38 +1,24 @@
-.App {
-  text-align: center;
+body{
+  background: url(https://static.vecteezy.com/system/resources/thumbnails/013/022/579/small_2x/weather-in-flat-design-free-vector.jpg);
+  height: 100vh;
+  background-repeat: no-repeat ;
+  background-size: cover;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container{
   display: flex;
-  flex-direction: column;
+  justify-content:center;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh;
+  flex-direction: column;
 }
-
-.App-link {
-  color: #61dafb;
+.WeatherBox{
+  border: 3px solid #bcdffa;
+  padding: 50px;
+  border-radius: 50px;
+  background-color: #d2e3f4;
+  font-family:'bitbit' ;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@font-face{
+  font-family:'bitbit';
+  src:url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff'),url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2') ;
 }
