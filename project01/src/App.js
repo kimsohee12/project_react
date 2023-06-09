@@ -43,6 +43,7 @@ function App() {
     let final = itemArray[randomItem];
     return choice[final];
   };
+
   const judgement = (user, computer) => {
     console.log("user", user, "computer", computer);
 
@@ -55,8 +56,10 @@ function App() {
     else if (user.name == "Paper")
       return computer.name == "Rock" ? "win" : "lose";
   };
+
   return (
     <div>
+
       <div className="main">
         <Box title="You" item={userSelect} result={result} />
         <Box title="Computer" item={computerSelect} result={result} />
@@ -66,6 +69,7 @@ function App() {
         <button onClick={() => play("rock")}>바위</button>
         <button onClick={() => play("paper")}>보</button>
       </div>
+      
     </div>
   );
 }
