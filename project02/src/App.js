@@ -1,10 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios'
 
 import React, { useEffect, useState} from 'react'
 import WeatherBox from './component/WeatherBox';
 import WeatherButton from './component/WeatherButton';
+import { logDOM } from '@testing-library/react';
 
 
 //1. 앱이 실행되자마자 현재 위치기반 지역 날씨가 보인다
@@ -16,40 +17,49 @@ import WeatherButton from './component/WeatherButton';
 
 function App() {
   const[weather, setWeather]=useState(null);
-
-
-
- const getCurrentLocation=()=>{
-  navigator.geolocation.getCurrentPosition((position) => {
-     let lat =position.coords.latitude;
-     let lon = position.coords.longitude;
-     getWeatherByCurrentLocation(lat,lon)
-
+  const [city,setCity] = useState('');
+  const cities = ['paris','new york', 'tokyo','seoul','gwangju']
+  //현재 위치 정보
+  const getCurrentLocation=()=>{
+    navigator.geolocation.getCurrentPosition((position) => {
+      let lat =position.coords.latitude;
+      let lon = position.coords.longitude;
+      getWeatherByCurrentLocation(lat,lon)
+      console.log(lat,lon);
+      
     });
- }
+  }
+  //날씨 정보
+  const getWeatherByCurrentLocation = (lat,lon)=>{
+   let url =`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=4f0ccde11adbb3613d9b39e8d3c784c8&unit=metric`
 
-
- const getWeatherByCurrentLocation = async(lat,lon)=>{
-  let url =`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=4f0ccde11adbb3613d9b39e8d3c784c8`
-
-  let response = await fetch(url);
-  let data =  await response.json()
-  console.log('data',data);
-  setWeather(data)
+  axios.get(url).then((res)=>setWeather(res.data))
 }
 
   useEffect(()=>{
-    getCurrentLocation();
+    if(city==''){
+      getCurrentLocation();
+    }else{
 
-  },[])
+      getWeatherByCity();
+    }
+  },[city])
+
+  const getWeatherByCity=()=>{
+    let url=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4f0ccde11adbb3613d9b39e8d3c784c8&unit=metric`
+  
+    axios.get(url).then((res)=>setWeather(res.data))
+  }
+  
+
 
   return (
     <div>
 
       <div className='container'>
-        <WeatherBox weather = {weather}/><br/>
+        <WeatherBox weather = {weather} /><br/>
 
-        <WeatherButton/>
+        <WeatherButton cities = {cities} setCity={setCity}/>
       </div>
     </div>
   );

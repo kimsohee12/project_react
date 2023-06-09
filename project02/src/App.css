@@ -12,9 +12,9 @@ body{
   flex-direction: column;
 }
 .WeatherBox{
-  border: 3px solid #bcdffa;
+  border: 3px ;
   padding: 50px;
-  border-radius: 50px;
+  border-radius: 30px;
   background-color: #d2e3f4;
   font-family:'bitbit' ;
 }
