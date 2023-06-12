@@ -3,8 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'
 
 import React, { useEffect, useState} from 'react'
-import WeatherBox from './component/WeatherBox';
-import WeatherButton from './component/WeatherButton';
+import WeatherBox from './components/WeatherBox';
+import WeatherButton from './components/WeatherButton';
 import { logDOM } from '@testing-library/react';
 
 
@@ -37,7 +37,7 @@ function App() {
 }
 
   useEffect(()=>{
-    if(city==''){
+    if(city==null){
       getCurrentLocation();
     }else{
 
@@ -50,7 +50,14 @@ function App() {
   
     axios.get(url).then((res)=>setWeather(res.data))
   }
-  
+
+  const handleCityChange = (city) => {
+    if (city === "current") {
+      setCity(null);
+    } else {
+      setCity(city);
+    }
+  };
 
 
   return (
@@ -59,7 +66,7 @@ function App() {
       <div className='container'>
         <WeatherBox weather = {weather} /><br/>
 
-        <WeatherButton cities = {cities} setCity={setCity}/>
+        <WeatherButton cities = {cities} selectCity={city} handleCityChange={handleCityChange}/>
       </div>
     </div>
   );
