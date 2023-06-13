@@ -5,7 +5,7 @@ import axios from 'axios'
 import React, { useEffect, useState} from 'react'
 import WeatherBox from './components/WeatherBox';
 import WeatherButton from './components/WeatherButton';
-import { logDOM } from '@testing-library/react';
+
 
 
 //1. 앱이 실행되자마자 현재 위치기반 지역 날씨가 보인다
@@ -17,7 +17,7 @@ import { logDOM } from '@testing-library/react';
 
 function App() {
   const[weather, setWeather]=useState(null);
-  const [city,setCity] = useState('');
+  const [city,setCity] = useState(null);
   const cities = ['paris','new york', 'tokyo','seoul','gwangju']
   //현재 위치 정보
   const getCurrentLocation=()=>{
@@ -40,7 +40,6 @@ function App() {
     if(city==null){
       getCurrentLocation();
     }else{
-
       getWeatherByCity();
     }
   },[city])

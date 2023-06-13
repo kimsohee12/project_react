@@ -1,6 +1,6 @@
 import React from 'react'
 
-const WeatherBox = ({weather, icon}) => {
+const WeatherBox = ({weather}) => {
 
   return (
     <div className='WeatherBox'>
