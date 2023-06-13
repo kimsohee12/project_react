@@ -13,7 +13,7 @@ import WeatherButton from './components/WeatherButton';
 //3. 다섯개의 버튼 1.현재 위치 나머지는 다른 도시 위치 
 //4. 도시 버튼을 클릭할 때마다 도시의 날씨가 나온다.
 //5. 현재 위치 버튼을 누르면 다시 현재 위치 기반 날씨가 나온다
-//6. 데이터를 들고 오는동안 로딩 스피너가 돈다.
+
 
 function App() {
   const[weather, setWeather]=useState(null);
