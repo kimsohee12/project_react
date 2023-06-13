@@ -1,0 +1,9 @@
+.login-button{
+  display: flex;
+  justify-content: flex-end;
+ margin: 10px;
+}
+.text-login{
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
