@@ -1,9 +1,60 @@
+
+/* NavBar */
+
 .login-button{
   display: flex;
   justify-content: flex-end;
  margin: 10px;
+ 
+}
+.menu{
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 20px;
+}
+.menu li a{
+  text-decoration: none;
+  color:black;
+  margin-left:20px;
 }
 .text-login{
   margin-left: 10px;
   margin-bottom: 10px;
 }
+.search-box{
+  border-bottom: 1px solid black;
+  position: absolute;
+  right: 20px;
+  padding: 5px;
+}
+.search-box input{
+  border:none;
+  margin-left:5px;
+}
+.search-box input:focus {
+  outline:none
+}
+.nav-logo{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+/* ProductCard  */
+.card{
+  border:none !important;
+  margin-bottom: 10px;
+}
+.choice{
+  font-size:11px;
+  color: #63786a;
+  font-weight: bold;
+  height: 20px;
+}
+.new-product {
+  font-size: 11px;
+  height: 20px;
+  color: red;
+}
+
+

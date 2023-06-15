@@ -5,6 +5,7 @@ import ProductAll from './Page/ProductAll';
 import Login from './Page/Login';
 import ProductDetail from './Page/ProductDetail';
 import NavBar from './components/NavBar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
   return (
     <div>
       <NavBar/>
+      <br/><br/>
       <Routes>
         <Route path='/' element={<ProductAll/>}/>
         <Route path='/login' element={<Login/>}/>
