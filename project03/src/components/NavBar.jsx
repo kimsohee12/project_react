@@ -18,8 +18,8 @@ const NavBar = () => {
   return (
     <div>
         <div className='login-button'>
-        <FontAwesomeIcon icon={faUser} />
-        <div className='text-login'> 로그인</div>
+        <FontAwesomeIcon icon={faUser} className='faUser'/>
+        <Link to ="/login" className='text-login'>로그인</Link>
         </div>
 
         <div className="nav-logo">
