@@ -1,19 +1,27 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-const Login = () => {
+const Login = ({setAuthenticate}) => {
+  const nav = useNavigate()
+  const loginUser=(event)=>{
+    event.preventDefault()
+    setAuthenticate(true)
+    nav('/')
+  }
+
   return (
     <div className='loginBox'>
-      <form className='login'>
-        <div class="form-outline mb-4">
-          <input type="email" id="form2Example1" class="form-control" />
-          <label class="form-label" for="form2Example1">Email address</label>
+      <form className='login' onSubmit={(event)=>loginUser(event)}>
+        <div className="form-outline mb-4">
+          <input type="email" id="form2Example1" className="form-control" />
+          <div className="form-label">Email address</div>
         </div>
 
-        <div class="form-outline mb-4">
-          <input type="password" id="form2Example2" class="form-control" />
-          <label class="form-label" for="form2Example2">Password</label>
+        <div className="form-outline mb-4">
+          <input type="password" id="form2Example2"className="form-control" />
+          <div className="form-label">Password</div>
         </div>
-        <button type="button" class="btn btn-primary btn-block mb-4">로그인</button>
+        <button type="submit" className="btn btn-primary btn-block mb-4">로그인</button>
 
       </form>
     </div>

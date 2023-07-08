@@ -23,7 +23,7 @@ const NavBar = () => {
         </div>
 
         <div className="nav-logo">
-          <Link to="/">
+          <Link to="/" >
             <img
               width={100}
               src="https://logos-world.net/wp-content/uploads/2020/04/HM-Logo-1999-present.jpg"
@@ -33,7 +33,7 @@ const NavBar = () => {
 
         <ul className="menu">
           {menuList.map((menu, index) => (
-            <li>
+            <li key={index}>
               <a href="#" key={index}>
                 {menu}
               </a>

@@ -67,6 +67,7 @@
   height: 20px;
   color: red;
 }
+/* login */
 .loginBox{
   margin-top: 35px;
   display: flex;
@@ -90,7 +91,53 @@
   border-color: #bd06063a !important;
   box-shadow: 0 0 0 0.25rem rgba(225, 45, 45, 0.25) !important;
 }
-@media screen and (max-width: 800px) {
+
+/* detail */
+.detailBox{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+.cardDetailImg{
+  width: 500px;
+  height: 740px;
+  margin-right: 50px;
+}
+.txtDetail{
+  margin-top: 20px;
+}
+.btn.btn-dark{
+  margin-top: 50px;
+  width: 650px;
+}
+.txtDetail div{
+  margin: 10px;
+}
+.txtDetail select{
+  margin-top: 20px;
+  width: 130px;
+  border-radius: 7px;
+}
+
+@media screen and (max-width: 1300px) {
+    /* detail */
+    .cardDetailImg{
+      width: 400px;
+      height: 600px;
+    }
+    .btn.btn-dark{
+      margin-top: 50px;
+      width: 550px;
+    }
+
+}
+@media screen and (max-width: 1100px) {
+  .btn.btn-dark{
+    width: 450px;
+  }
+}
+@media screen and (max-width: 950px) {
+  /* login */
   .loginBox{
     margin-top: 50px;
   }
@@ -102,5 +149,26 @@
   }
   .btn.btn-primary.btn-block.mb-4{
     width: 350px;
+  }
+  /* detail */
+  .cardDetailImg{
+    width: 350px;
+    height: 520px;
+    margin: 20px;
+  }
+  .btn.btn-dark{
+    width: 380px;
+  }
+}
+@media screen and (max-width: 800px) {
+
+  /* detail */
+  .cardDetailImg{
+    width: 350px;
+    height: 520px;
+    margin-right: 20px;
+  }
+  .btn.btn-dark{
+    width: 250px;
   }
 }

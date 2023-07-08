@@ -6,6 +6,9 @@ import Login from './Page/Login';
 import ProductDetail from './Page/ProductDetail';
 import NavBar from './components/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useEffect, useState } from 'react';
+import { alignPropType } from 'react-bootstrap/esm/types';
+import PrivateRouter from './route/PrivateRouter';
 
 function App() {
 
@@ -19,7 +22,12 @@ function App() {
 //로그인 하면 로그아웃이 보이고 로그아웃을 하면 로그인이 보인다
 //상품을 검색 할 수 있다.
 
+//로그인 확인 (로그인o : ture , 로그인x : false)
+const [authenticate,setAuthenticate] = useState(false)
 
+useEffect(()=>{
+  console.log('aaa',authenticate);
+},[authenticate])
 
   return (
     <div>
@@ -27,8 +35,8 @@ function App() {
       <br/><br/>
       <Routes>
         <Route path='/' element={<ProductAll/>}/>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/product/:id' element={<ProductDetail/>}/>
+        <Route path='/login' element={<Login setAuthenticate={setAuthenticate}/>}/>
+        <Route path='/product/:id' element={<PrivateRouter authenticate={authenticate} />}/>
       </Routes>
     </div>
   );

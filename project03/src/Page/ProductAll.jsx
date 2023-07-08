@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import axios from 'axios';
 import ProductCard from '../components/ProductCard';
 import{Container, Row,Col} from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom';
 
 const ProductAll = () => {
   const [productList,setProductList]=useState([])
@@ -14,7 +15,6 @@ const ProductAll = () => {
   axios.get(url).then((res)=>setProductList(res.data))
 }
 
-
   useEffect(()=>{
     getProducts()
   },[])
@@ -22,8 +22,8 @@ const ProductAll = () => {
     <div>
       <Container>
         <Row>
-          {productList.map((menu)=>(
-          <Col lg={3}>
+          {productList.map((menu,index)=>(
+          <Col lg={3} key={index}>
             <ProductCard item={menu}/>
           </Col>
           ))}
