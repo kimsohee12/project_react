@@ -11,6 +11,40 @@
   justify-content: center;
   list-style-type: none;
   padding: 20px;
+}.menuWoman{
+  text-decoration: none;
+  color: black;
+  margin-right: 20px;
+}
+.menus{
+  text-decoration: none;
+  margin-right: 20px;
+  color: black;
+}
+.navbarAtc{
+  display: flex;
+}
+.basket{
+  margin-right: 10px;
+}
+.bsBag{
+  margin-right: 10px;
+}
+@font-face {
+  font-family: 'KCC-Ganpan';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.cartNum{
+  margin-right: 30px;
+  font-family: 'KCC-Ganpan';
+  color: rgb(232, 78, 17);
+}
+.basket
+.navbarAtc span{
+  margin: 5px;
 }
 .menu li a{
   text-decoration: none;
@@ -19,6 +53,7 @@
 }
 .faUser{
   margin-top: 5px;
+  margin-right: 10px;
 }
 .text-login{
   margin-left: 10px;
@@ -67,11 +102,29 @@
   height: 20px;
   color: red;
 }
+.readyBox{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.readyImg{
+  width: 600px;
+}
+.homClick{
+  width: 200px;
+  border-radius: 15px !important;
+}
 /* login */
 .loginBox{
   margin-top: 35px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.loginBox h2{
+  margin-bottom: 50px;
 }
 .login{
   width: 500px;
@@ -102,6 +155,7 @@
   width: 500px;
   height: 740px;
   margin-right: 50px;
+  margin-bottom: 7%;
 }
 .txtDetail{
   margin-top: 20px;
@@ -170,5 +224,70 @@
   }
   .btn.btn-dark{
     width: 250px;
+  }
+}
+/* cart */
+.cartListBox{
+  display: flex;
+  justify-content: center;
+
+}
+.cartList{
+  margin: 30px;
+  width: 70%;
+  height: 300px;
+  border: 3px solid rgba(204, 204, 204, 0.508);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+}
+.cartList img {
+  margin: 15px;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+.cartTxtBtn{
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.cartbtn{
+  width: 200px;
+  height: 50px;
+}
+.cartbtn.btn.btn-danger{
+  width: 300px !important;
+}
+.cartTxt{
+  width: 300px;
+  margin-left: 15%;
+}
+@media screen and (max-width: 1500px) {
+  .cartBtn{
+    width: 180px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .cartBtn{
+    width: 120px;
+  }
+  .cartTxt{
+    width: 200px;
+    margin-left: 5%;
+    margin-right: 10px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .cartTxtBtn{
+    display: flex;
+    flex-direction:column ;
+  }
+  .cartTxt{
+    margin-bottom: 20px;
+  }
+  .cartbtn.btn.btn-danger{
+    width: 200px !important;
   }
 }

@@ -9,6 +9,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
 import { alignPropType } from 'react-bootstrap/esm/types';
 import PrivateRouter from './route/PrivateRouter';
+import PreparingPage from './Page/PreparingPage';
+import { FaBeer } from 'react-icons/fa';
+import CartList from './cart/CartList';
 
 function App() {
 
@@ -21,9 +24,12 @@ function App() {
 //로그아웃이 되면 상품 디테일 페이지를 볼 수 없다. /다시 로그인 하면 페이지가 보인다
 //로그인 하면 로그아웃이 보이고 로그아웃을 하면 로그인이 보인다
 //상품을 검색 할 수 있다.
+//상품 디테일에서 추가 버튼을 누르면 장바구니에 상품이 추가되고 장바구니 옆 숫자가 1증가된다.
+//장바구니에 들어가면 내가 담은 아이템들을 확인할 수 있다.
 
 //로그인 확인 (로그인o : ture , 로그인x : false)
-const [authenticate,setAuthenticate] = useState(false)
+const [authenticate,setAuthenticate] = useState(false);
+const [cart,setCart] =useState([]);
 
 useEffect(()=>{
   console.log('aaa',authenticate);
@@ -31,12 +37,14 @@ useEffect(()=>{
 
   return (
     <div>
-      <NavBar/>
+      <NavBar authenticate ={authenticate} setAuthenticate={setAuthenticate} cart={cart} setCart ={setCart}/>
       <br/><br/>
       <Routes>
         <Route path='/' element={<ProductAll/>}/>
+        <Route path='/cart' element={<CartList/>}/>
+        <Route path='/preparing' element={<PreparingPage/>}/>
         <Route path='/login' element={<Login setAuthenticate={setAuthenticate}/>}/>
-        <Route path='/product/:id' element={<PrivateRouter authenticate={authenticate} />}/>
+        <Route path='/product/:id' element={<PrivateRouter authenticate={authenticate} cart={cart} setCart ={setCart}/>}/>
       </Routes>
     </div>
   );
